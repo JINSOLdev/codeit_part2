@@ -1,0 +1,48 @@
+### 전체 할 일 목록 조회
+GET http://localhost:3000/todos
+Accept: application/json
+
+
+### 특정 할 일 조회 (예: ID 1)
+GET http://localhost:3000/todos/1
+Accept: application/json
+
+
+### 새 할 일 추가
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "타입스크립트 복습",
+  "category": "공부",
+  "importance": "high"
+}
+
+
+### 할 일 수정 (예: ID 1)
+PUT http://localhost:3000/todos/1751347427733
+Content-Type: application/json
+
+{
+  "done": true,
+  "importance": "medium"
+}
+
+
+### 할 일 삭제 (예: ID 2)
+DELETE http://localhost:3000/todos/2
+
+
+### 중요도가 high이고 완료된 할 일만 필터링
+GET http://localhost:3000/todos/filter/query?importance=high&done=true
+Accept: application/json
+
+
+### 완료되지 않은 모든 할 일만 보기
+GET http://localhost:3000/todos/filter/query?done=false
+Accept: application/json
+
+
+### 할 일 미리보기 조회
+GET http://localhost:3000/todos/previews
+Accept: application/json
